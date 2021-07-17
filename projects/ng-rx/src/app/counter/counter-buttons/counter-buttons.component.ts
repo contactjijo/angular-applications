@@ -1,4 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { reset } from './../state/counter.actions';
+import { CounterState } from './../state/counter.state';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { decrement, increment } from '../state/counter.actions';
 
 @Component({
     selector: 'app-counter-buttons',
@@ -7,18 +11,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class CounterButtonsComponent implements OnInit {
 
-    @Output() increment = new EventEmitter<void>();
-    @Output() decrement = new EventEmitter<void>();
-    @Output() reset = new EventEmitter<void>();
-
-    constructor() { }
+    constructor(private store: Store<{ counter: CounterState }>) { }
 
     ngOnInit(): void {
     }
 
-    onIncrement() { this.increment.emit(); }
+    onIncrement() { this.store.dispatch(increment()); }
 
-    onDecrement() { this.decrement.emit(); }
+    onDecrement() { this.store.dispatch(decrement()); }
 
-    onReset() { this.reset.emit(); }
+    onReset() { this.store.dispatch(reset()); }
 }
