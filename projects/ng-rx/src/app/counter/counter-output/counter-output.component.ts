@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 })
 export class CounterOutputComponent implements OnInit {
 
-    counter$: Observable<{ counter: number }>;
+    counter$: Observable<CounterState>;
     constructor(private store: Store<{ counter: CounterState }>) {
         this.counter$ = this.store.select('counter');
     }

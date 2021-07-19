@@ -1,0 +1,22 @@
+<div class="row my-3">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+        <form (ngSubmit)="onSubmit()">
+            <legend>Form title</legend>
+
+            <label for="value">Custom Input Value </label>
+            <input type="text"
+                   class="form-control"
+                   id="value"
+                   placeholder="Enter value here..."
+                   name="value"
+                   [(ngModel)]="value">
+
+            <button type="submit"
+                    class="btn btn-primary my-3">Submit</button>
+        </form>
+
+
+    </div>
+</div>

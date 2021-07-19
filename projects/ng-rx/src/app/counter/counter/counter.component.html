@@ -3,11 +3,17 @@
         <app-counter-output></app-counter-output>
     </div>
 
+
+
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-3">
         <app-counter-buttons (increment)=onIncrement()
                              (decrement)="onDecrement()"
                              (reset)="onReset()">
         </app-counter-buttons>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-3">
+        <app-custom-counter></app-custom-counter>
     </div>
 
 </div>
