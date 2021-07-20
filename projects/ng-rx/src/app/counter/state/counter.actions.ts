@@ -8,3 +8,6 @@ export const custom = createAction(
     'custom',
     props<{ count: number }>()
 );
+
+
+export const changeChannelName = createAction('changeChannelName');
