@@ -13,8 +13,6 @@ export const updatePost = createAction(
     props<{ post: Post }>()
 );
 
-
-
 export const deletePost = createAction(
     DELETE_POST_ACTION,
     props<{ id: string }>()
