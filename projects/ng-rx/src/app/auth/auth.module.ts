@@ -1,10 +1,12 @@
+import { StoreModule } from '@ngrx/store';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
-
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AUTH_STATE_NAME } from './state/auth.selector';
+import { AuthReducer } from './state/auth.reducer';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
-        AuthRoutingModule
+        AuthRoutingModule,
+        StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer)
     ],
     exports: [],
     declarations: [
