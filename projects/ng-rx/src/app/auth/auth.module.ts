@@ -1,3 +1,5 @@
+import { AuthEffects } from './state/auth.effects';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -15,7 +17,8 @@ import { AuthReducer } from './state/auth.reducer';
         FormsModule,
         ReactiveFormsModule,
         AuthRoutingModule,
-        StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer)
+        StoreModule.forFeature(AUTH_STATE_NAME, AuthReducer),
+        EffectsModule.forFeature([AuthEffects])
     ],
     exports: [],
     declarations: [
