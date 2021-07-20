@@ -17,7 +17,6 @@ const _postsReducer = createReducer(
         const updatedPosts = state.posts.map((post) => {
             return action.post.id === post.id ? action.post : post;
         });
-
         return {
             ...state,
             posts: updatedPosts,

@@ -11,7 +11,6 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { appReducer } from './store/app.state';
 
 @NgModule({
     declarations: [
@@ -23,7 +22,7 @@ import { appReducer } from './store/app.state';
         BrowserModule,
         CommonModule,
         AppRoutingModule,
-        StoreModule.forRoot(appReducer),
+        StoreModule.forRoot({}),
         StoreDevtoolsModule.instrument({
             // maxAge: 25,
             logOnly: environment.production

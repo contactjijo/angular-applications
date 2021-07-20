@@ -1,3 +1,4 @@
+import { COUNTER_SELECTOR } from './state/counter.selectors';
 import { CustomCounterComponent } from './custom-counter/custom-counter.component';
 import { CounterButtonsComponent } from './counter-buttons/counter-buttons.component';
 import { CounterComponent } from './counter/counter.component';
@@ -7,6 +8,8 @@ import { CommonModule } from '@angular/common';
 
 import { CounterRoutingModule } from './counter-routing.module';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './state/counter.reducer';
 
 @NgModule({
     declarations: [
@@ -18,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     imports: [
         CommonModule,
         FormsModule,
-        CounterRoutingModule
+        CounterRoutingModule,
+        StoreModule.forFeature(COUNTER_SELECTOR, counterReducer),
     ],
     exports: [],
     providers: [],

@@ -1,11 +1,11 @@
-import { updatePost } from './../posts-list/state/posts.actions';
+import { updatePost } from '../state/posts.actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Post } from '../../models/post.model';
 import { AppState } from '../../store/app.state';
-import { getPostById } from '../posts-list/state/posts.selector';
+import { getPostById } from '../state/posts.selector';
 import { take } from 'rxjs/operators';
 
 @Component({
