@@ -1,3 +1,4 @@
+import { updatePost } from './../posts-list/state/posts.actions';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,6 +19,7 @@ export class EditPostComponent implements OnInit {
     postForm: FormGroup;
 
     constructor(
+        private router: Router,
         private route: ActivatedRoute,
         private store: Store<AppState>) {
         this.postForm = new FormGroup({
@@ -52,8 +54,22 @@ export class EditPostComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(this.postForm?.value);
-        // this.store.dispatch(update)
+        if (!this.postForm.valid) {
+            return;
+        }
+
+        const title = this.postForm.value.title;
+        const description = this.postForm.value.description;
+
+        const post: Post = {
+            id: this.post?.id,
+            title,
+            description,
+        };
+
+        //dispatch the action
+        this.store.dispatch(updatePost({ post }));
+        this.router.navigate(['posts']);
     }
 
 
