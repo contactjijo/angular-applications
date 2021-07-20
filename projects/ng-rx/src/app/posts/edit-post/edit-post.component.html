@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+        <form [formGroup]="postForm"
+              (ngSubmit)=onSubmit()>
+            <legend>Update post</legend>
+            <hr>
+
+            <div class="form-group my-3">
+                <label for="">Title</label>
+                <input type="text"
+                       class="form-control"
+                       placeholder="Please enter title here"
+                       formControlName="title">
+
+
+                <div *ngIf="postForm?.get('title')?.touched && !postForm?.get('title')?.valid">
+                    <div *ngIf="postForm?.get('title')?.errors?.required">
+                        Title is required.
+                    </div>
+
+                    <div *ngIf="postForm?.get('title')?.errors?.minlength">
+                        Title should be of minimum 6 characters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group my-3">
+                <label for="">Description</label>
+
+
+                <textarea name="description"
+                          id="description"
+                          class="form-control"
+                          rows="3"
+                          required="required"
+                          placeholder="Please enter description here..."
+                          formControlName="description"></textarea>
+
+                <!-- <div *ngIf="postForm.get('description')?.errors?.required">
+                    Description is required.
+                </div>
+
+                <div *ngIf="postForm.get('description')?.errors?.minlength">
+                    Description should be of minimum 10 characters.
+                </div> -->
+
+                <div>{{ showDescriptionErros() }}</div>
+            </div>
+
+
+            <button type="submit"
+                    class="btn btn-primary my-3"
+                    [disabled]="!postForm?.valid">Submit</button>
+        </form>
+    </div>
+</div>
