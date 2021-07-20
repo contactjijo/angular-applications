@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { changeChannelName, custom } from '../state/counter.actions';
 import { Observable } from 'rxjs';
+import { AppState } from '../../store/app.state';
 
 @Component({
     selector: 'app-custom-counter',
@@ -15,7 +16,7 @@ export class CustomCounterComponent implements OnInit {
     value: number;
     channelName$?: Observable<string>;
 
-    constructor(private store: Store<CounterState>) {
+    constructor(private store: Store<AppState>) {
         this.value = 0;
     }
 
